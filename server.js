@@ -17,8 +17,8 @@ app.use(bodyParser.json());
 
 // for url encoded data
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/api/user", userRoute);
 app.use("/api/auth", authRoute);
+app.use("/api/user", userRoute);
 app.use("/api/todo", todoRoute);
 
 app.use("*", (req, res) => {
