@@ -2,20 +2,20 @@
 
 // require express and create a router
 const express = require("express");
+const {
+    login,
+    signUp,
+    resetPassword,
+    changePassword,
+    patchProfile,
+} = require("../controllers/user/userController");
+
 const router = express.Router();
 
-router.post("signup", (req, res, next) => {
-    res.status(201).json({
-        status: "success",
-        message: "User created successfully",
-    });
-});
-
-router.post("/reset-password", (req, res, next) => {
-    res.status(201).json({
-        status: "success",
-        message: "Password reset successfully",
-    });
-});
+router.post("/login", login);
+router.post("/signup", signUp);
+router.patch("/edit", patchProfile);
+router.post("/reset-pw", resetPassword);
+router.post("/change-pw", changePassword);
 
 module.exports = router;
